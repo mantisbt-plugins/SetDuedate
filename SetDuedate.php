@@ -9,8 +9,8 @@ class SetDuedatePlugin extends MantisPlugin {
 		$this->version = '4.03';     
 		$this->requires = array( 'MantisCore' => '2.0.0', );
 		$this->author = 'Cas Nuy / Istvan Baktai';        
-		$this->contact = '';       
-		$this->url = '';           
+		$this->contact = 'cas-at-nuy.info';       
+		$this->url = 'https://github.com/mantisbt-plugins/SetDuedate';           
 	}
 
 	function config() {
