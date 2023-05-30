@@ -71,6 +71,18 @@ $t_priority_levels = MantisEnum::getValues( config_get( 'priority_enum_string' )
 </td>
 </tr> 
 
+<tr >
+<td class="category" width="60%">
+<?php echo lang_get( 'skip_duedate' )?>
+</td>
+<td class="center" width="20%">
+<label><input type="radio" name='duedate_skip' value="1" <?php echo( ON == plugin_config_get( 'duedate_skip' ) ) ? 'checked="checked" ' : ''?>/>
+<?php echo lang_get( 'duedate_enabled' )?></label>
+<label><input type="radio" name='duedate_skip' value="0" <?php echo( OFF == plugin_config_get( 'duedate_skip' ) )? 'checked="checked" ' : ''?>/>
+<?php echo lang_get( 'duedate_disabled' )?></label>
+</td>
+</tr> 
+
 </table>
 </div>
 </div>

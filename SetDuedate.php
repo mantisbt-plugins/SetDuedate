@@ -6,11 +6,11 @@ class SetDuedatePlugin extends MantisPlugin {
 		$this->name = 'SetDuedate';    
 		$this->description = 'Ability to set duedate upon registering';    
 		$this->page = 'config';           
-		$this->version = '4.03';     
+		$this->version = '4.04';     
 		$this->requires = array( 'MantisCore' => '2.0.0', );
 		$this->author = 'Cas Nuy / Istvan Baktai';        
-		$this->contact = 'cas-at-nuy.info';       
-		$this->url = 'https://github.com/mantisbt-plugins/SetDuedate';           
+		$this->contact = '';       
+		$this->url = '';           
 	}
 
 	function config() {
@@ -23,6 +23,7 @@ class SetDuedatePlugin extends MantisPlugin {
 			'duedate_days_priority_50' => 2,		//default due date for priority URGENT
 			'duedate_days_priority_60' => 1,		//default due date for priority IMMEDIATE
 			'duedate_overrule'		   => OFF,		//System  will overrule (@ each update evaluated)
+			'duedate_skip'			   => OFF,		//System  will skip duedate setting on global level
 			);
 	}
 
@@ -52,6 +53,11 @@ class SetDuedatePlugin extends MantisPlugin {
 		}
 		// if nothing found, we use the default Priority based calculation
 		if ($days == 0){
+			$skip	= config_get( 'plugin_SetDuedate_duedate_skip' );
+			if ( ON == $skip ) {
+				return;
+			}
+			
 			$priorities = array(10, 20, 30, 40, 50,60);
 			if (in_array($p_bug_data->priority, $priorities)) {
 				$days = plugin_config_get('duedate_days_priority_' . $p_bug_data->priority);
@@ -89,6 +95,10 @@ class SetDuedatePlugin extends MantisPlugin {
 			}
 			// if nothing found, we use the default Priority based calculation
 			if ($days == 0){
+				$skip	= config_get( 'plugin_SetDuedate_duedate_skip' );
+				if ( ON == $skip ) {
+					return;
+				}
 				$priorities = array(10, 20, 30, 40, 50,60);
 				if (in_array($p_bug_data->priority, $priorities)) {
 					$days = plugin_config_get('duedate_days_priority_' . $p_bug_data->priority);
