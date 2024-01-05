@@ -6,7 +6,7 @@ class SetDuedatePlugin extends MantisPlugin {
 		$this->name = 'SetDuedate';    
 		$this->description = 'Ability to set duedate upon registering';    
 		$this->page = 'config';           
-		$this->version = '4.04';     
+		$this->version = '4.05';     
 		$this->requires = array( 'MantisCore' => '2.0.0', );
 		$this->author = 'Cas Nuy / Istvan Baktai';        
 		$this->contact = '';       

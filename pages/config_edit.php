@@ -26,4 +26,4 @@ plugin_config_set( 'duedate_overrule', $f_duedate_overrule );
 plugin_config_set( 'duedate_skip', $f_duedate_skip );
 
 // redirect
-print_successful_redirect( plugin_page( 'config',TRUE ) );
+print_header_redirect( plugin_page( 'config',TRUE ) );
