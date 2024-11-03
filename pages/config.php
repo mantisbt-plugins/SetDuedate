@@ -16,7 +16,7 @@ $link=plugin_page('cat_definition');
 <div class="widget-header widget-header-small">
 	<h4 class="widget-title lighter">
 		<i class="ace-icon fa fa-text-width"></i>
-		<?php echo lang_get( 'plugin_format_title' ) . ': ' . lang_get( 'plugin_format_config' )?>
+		<?php echo lang_get( 'plugin_format_title' ) . ': ' . lang_get( 'duedate_config' )?>
 	</h4>
 </div>
 <div class="widget-body">
